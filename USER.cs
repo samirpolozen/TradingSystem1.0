@@ -13,3 +13,9 @@ class User // skapar en User klass som innehåller metoder för olika funktioner
             Password = password; // Tilldelar password värdet
       }
 }
+
+// Skapar en UserService klass med metoder
+class UserService
+{
+
+}
