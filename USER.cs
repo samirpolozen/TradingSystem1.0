@@ -5,7 +5,7 @@ class User // skapar en User klass som innehåller metoder för olika funktioner
       public string Email;
       public string Password;
 
-      //Skapar en konstruktor för klass User
+      // Skapar en konstruktor för klass User
       // När vi skapar ett User objekt skickar vi parametrarna email och password 
       public User(string email, string password)
       {
@@ -36,8 +36,9 @@ class UserService
             {
                   File.WriteAllText(UserFile, "");
             }
+            LoadUsers(); // Lägger till metoden för att hämta användarna direkt när systemet initieras. 
       }
-      // skapa en LoadUsers() som kommer att ladda upp alla Users i "users.txt"
+      // Läser in alla användare från "users.txt" till listan Users
       static void LoadUsers()
       {
             if (!File.Exists(UserFile)) // Finns filen?
