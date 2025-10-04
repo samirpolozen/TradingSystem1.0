@@ -17,5 +17,24 @@ class User // skapar en User klass som innehåller metoder för olika funktioner
 // Skapar en UserService klass med metoder
 class UserService
 {
-
+      // Samma fil delas av alla User objekt med hjälp av statisk.
+      // Endast klassen själv kan använda den.
+      // Tilldelar filnamnet users.txt
+      static string UserFile = "users.txt";
+      // Skapar en lista som innehåller alla användare i systemet 
+      // Static gör att listan delas av hela klassen, inte av enskilda User instanser
+      public static List<User> Users = new List<User>();
+      // Statisk variabel som sparar den inloggade användaren
+      //När ingen är inloggad är värdet null
+      public static User currentuser = null;
+      // Skapar en "users.txt" fil om den redan inte finns 
+      // Laddar in användare från filen 
+      // Start() initierar användarsystemet 
+      public static void Start()
+      {
+            if (File.Exists(UserFile))
+            {
+                  File.WriteAllText(UserFile, "");
+            }
+      }
 }
