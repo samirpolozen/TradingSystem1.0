@@ -37,4 +37,26 @@ class UserService
                   File.WriteAllText(UserFile, "");
             }
       }
+      // skapa en LoadUsers() som kommer att ladda upp alla Users i "users.txt"
+      static void LoadUsers()
+      {
+            if (!File.Exists(UserFile)) // Finns filen?
+            {
+                  return; // Avsluta metoden direkt om den inte finns
+            }
+
+            string[] lines = File.ReadAllLines(UserFile); // Läser in alla rader från filen till en array
+            foreach (string n in lines) // Här loopar vi igenom varje rad i file "users.txt"
+            {
+                  string[] parts = n.Split('-'); // Delar upp raden i två delar: Email och Password
+                  if (parts.Length == 2) // Checkar att raden innehåller exakt 2 delar
+                  {
+                        User u = new User(parts[0], parts[1]); // Här skapar vi en nu User med email och lösenord 
+                        Users.Add(u); // Lägger till User i listan med alla Users
+                  }
+
+            }
+      }
+
+
 }
